@@ -24,6 +24,7 @@ IntegerVector seq_to_idx(CharacterVector x, NumericMatrix mtx) {
   IntegerVector ret(l);
   for (int i = 0; i < l; i++) {
     std::string this_letter = as<std::string>(x[i]);
+    std::transform(this_letter.begin(), this_letter.end(), this_letter.begin(), toupper);
     ret[i] = seq_map.at(this_letter);
   }
   return ret;

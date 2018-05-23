@@ -17,6 +17,11 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
+library(ggplot2)
+library(alndist)
+```
+
+```{r}
 # fs <- list.files("data", full.names = T)
 # for (f in fs) load(f)
 #
@@ -30,12 +35,20 @@ knitr::opts_chunk$set(
 
 or <- seqinr::read.fasta(system.file("extdata/mouseOR.fasta", package="alndist"), seqtype="AA")
 x <- toupper(as.character(or[[1]]))
-mtx <- get_substitute_mtx("BLOSUM62")
+mtx <- get_substitute_mtx("PAM250")
 seq_to_idx(x, mtx)
-weights <- runif(length(x), 0, 1)
+weights <- rep(1, length(x))
 two_seq_score(x, x, mtx, weights)
 
 lst <- purrr::map(or, ~toupper(as.character(.x)))
 names(lst) <- purrr::map(or, ~attr(.x, "Annot"))
-pairwise_score(lst[1:3], mtx, weights)
+dist_mtx <- pairwise_score(lst, mtx, weights)
+dist_pca <- prcomp(dist_mtx, scale. = TRUE)
+ggplot(as.data.frame(dist_pca$x), aes(PC1, PC2)) +
+  geom_point(alpha=0.3)
+
+long_lst <- rep(lst, 2)
+names(long_lst) <- 1:length(long_lst)
+long_weights <- rep(1, length(long_lst))
+system.time(dist_mtx <- pairwise_score(long_lst, mtx, weights))
 ```

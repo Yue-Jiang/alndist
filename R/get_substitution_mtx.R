@@ -12,7 +12,8 @@
 #' \dontrun{
 #' get_substitution_mtx("BLOSUM62", gap.char="*")
 #' }
-
+#'
+#' @export
 get_substitute_mtx <- function(mtx.name="BLOSUM62", gap.char="-", gap.gap=NA, gap.non.gap=NA) {
   if (is.na(gap.char)) {
     warning("gap.char is set to '-'")
