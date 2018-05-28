@@ -5,6 +5,19 @@
 
 using namespace Rcpp;
 
+// parallel_pairwise_score
+NumericMatrix parallel_pairwise_score(List seqs, NumericMatrix mtx, NumericVector weight);
+RcppExport SEXP _alndist_parallel_pairwise_score(SEXP seqsSEXP, SEXP mtxSEXP, SEXP weightSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type seqs(seqsSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type mtx(mtxSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type weight(weightSEXP);
+    rcpp_result_gen = Rcpp::wrap(parallel_pairwise_score(seqs, mtx, weight));
+    return rcpp_result_gen;
+END_RCPP
+}
 // seq_to_idx
 IntegerVector seq_to_idx(CharacterVector x, NumericMatrix mtx);
 RcppExport SEXP _alndist_seq_to_idx(SEXP xSEXP, SEXP mtxSEXP) {
@@ -46,6 +59,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_alndist_parallel_pairwise_score", (DL_FUNC) &_alndist_parallel_pairwise_score, 3},
     {"_alndist_seq_to_idx", (DL_FUNC) &_alndist_seq_to_idx, 2},
     {"_alndist_two_seq_score", (DL_FUNC) &_alndist_two_seq_score, 4},
     {"_alndist_pairwise_score", (DL_FUNC) &_alndist_pairwise_score, 3},

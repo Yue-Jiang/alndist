@@ -47,8 +47,14 @@ dist_pca <- prcomp(dist_mtx, scale. = TRUE)
 ggplot(as.data.frame(dist_pca$x), aes(PC1, PC2)) +
   geom_point(alpha=0.3)
 
-long_lst <- rep(lst, 2)
+long_lst <- rep(lst, 10)
 names(long_lst) <- 1:length(long_lst)
 long_weights <- rep(1, length(long_lst))
 system.time(dist_mtx <- pairwise_score(long_lst, mtx, weights))
+system.time(dist_mtx <- parallel_pairwise_score(long_lst, mtx, weights))
+
+microbenchmark::microbenchmark(dist_mtx <- pairwise_score(lst, mtx, weights))
+microbenchmark::microbenchmark(dist_mtx_p <- parallel_pairwise_score(lst, mtx, weights))
+
+identical(dist_mtx, dist_mtx_p)
 ```
