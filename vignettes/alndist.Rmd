@@ -17,7 +17,6 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
-library(ggplot2)
 library(alndist)
 ```
 
@@ -60,8 +59,8 @@ This will actually lead to some clustering of receptors (e.g. compare with Figur
 
 ```{r}
 dist_pca <- prcomp(dist_mtx, scale. = TRUE)
-ggplot(as.data.frame(dist_pca$x), aes(PC1, PC2)) +
-  geom_point(alpha=0.3)
+ggplot2::ggplot(as.data.frame(dist_pca$x), ggplot2::aes(PC1, PC2)) +
+  ggplot2::geom_point(alpha=0.3)
 ```
 
 We can also try ~10k sequences, the time should still be reasonable. There's also a `parallel_pairwise_score` to be used when there are multiple cores available. On my 2015 Macbook Pro they took ~ 1 minute and ~ 30 seconds respectively.
