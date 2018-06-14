@@ -28,4 +28,5 @@ Get the substitution matrix.
 \dontrun{
 get_substitution_mtx("BLOSUM62", gap.char="*")
 }
+
 }

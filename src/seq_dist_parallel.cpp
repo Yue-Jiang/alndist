@@ -40,6 +40,17 @@ struct PairDist : public Worker {
   }
 };
 
+//' Calculate pairwise scores for aligned sequences given a substitution matrix.
+//' Optionaly weight for each position in the alignment. Same as `pairwise_score`,
+//' except this is parallelized.
+//' @param seqs A list of character vectors, each represents a sequence in the alignment.
+//' @param mtx Substitution matrix as a numeric matrix.
+//' @param weight A numeric vector specifying weights for each position in aligned sequences.
+//' Same length as sequences 1 and 2.
+//'
+//' @return A NumericMatrix of pairwise scores.
+//'
+//' @export
 // [[Rcpp::export]]
 NumericMatrix parallel_pairwise_score(List seqs, NumericMatrix mtx, NumericVector weight) {
   StringVector names = seqs.names();
