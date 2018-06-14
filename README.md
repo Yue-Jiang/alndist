@@ -5,5 +5,5 @@ Calculate sequence distance / similarity for aligned sequences.
 
 # install
 Install `devtools` if you haven't, by `install.packages("devtools")`.
-Then, install this package by `devtools::install("Yue-Jiang/alndist")`.
-Optionally, install the package, also install dependencies and build vignettes `devtools::install("Yue-Jiang/alndist", dependencies = TRUE, build_vignettes = TRUE)`.
+Then, install this package by `devtools::install_github("Yue-Jiang/alndist")`.
+Optionally, install the package, also install dependencies and build vignettes `devtools::install_github("Yue-Jiang/alndist", dependencies = TRUE, build_vignettes = TRUE)`.
