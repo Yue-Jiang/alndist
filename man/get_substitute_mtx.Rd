@@ -4,8 +4,8 @@
 \alias{get_substitute_mtx}
 \title{Get the substitution matrix.}
 \usage{
-get_substitute_mtx(mtx.name = "BLOSUM62", gap.char = "-", gap.gap = NA,
-  gap.non.gap = NA)
+get_substitute_mtx(mtx.name = "BLOSUM62", gap.char = "-",
+  gap.gap = NA, gap.non.gap = NA)
 }
 \arguments{
 \item{mtx.name}{A character string. The name of substitution matrix.
