@@ -1,12 +1,16 @@
 Package: alndist
 Type: Package
-Title: alndist
+Title: Calculate distances between aligned sequences
 Version: 0.1.0
-Author: Yue Jiang
+Authors@R: c(
+    person("Yue", "Jiang", role = c("aut", "cre"), email = "rivehill@gmail.com", comment = c(ORCID = "0000-0002-9798-5517"))
+    )
 Maintainer: Yue Jiang <yuejiang@alumni.duke.edu>
 Description: Calculate distances between aligned sequences.
     Given a substitution matrix, calculate distance between two sequences,
     pairwise distances for a group of sequences on a single thread or in parallel.
+URL: https://github.com/Yue-Jiang/alndist
+BugReports: https://github.com/Yue-Jiang/alndist/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
