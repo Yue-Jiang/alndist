@@ -13,7 +13,7 @@
 #'
 #' @export
 parallel_pairwise_score <- function(seqs, mtx, weight) {
-    .Call(`_alndist_parallel_pairwise_score`, seqs, mtx, weight)
+    .Call('_alndist_parallel_pairwise_score', PACKAGE = 'alndist', seqs, mtx, weight)
 }
 
 #' Helper function to convert a character vector to an integer vector of positions in substitution matrix.
@@ -24,7 +24,7 @@ parallel_pairwise_score <- function(seqs, mtx, weight) {
 #'
 #' @export
 seq_to_idx <- function(x, mtx) {
-    .Call(`_alndist_seq_to_idx`, x, mtx)
+    .Call('_alndist_seq_to_idx', PACKAGE = 'alndist', x, mtx)
 }
 
 #' Calculate scores for two aligned sequences given a substitution matrix.
@@ -39,7 +39,7 @@ seq_to_idx <- function(x, mtx) {
 #'
 #' @export
 two_seq_score <- function(x, y, mtx, weight) {
-    .Call(`_alndist_two_seq_score`, x, y, mtx, weight)
+    .Call('_alndist_two_seq_score', PACKAGE = 'alndist', x, y, mtx, weight)
 }
 
 #' Calculate pairwise scores for aligned sequences given a substitution matrix.
@@ -53,6 +53,6 @@ two_seq_score <- function(x, y, mtx, weight) {
 #'
 #' @export
 pairwise_score <- function(seqs, mtx, weight) {
-    .Call(`_alndist_pairwise_score`, seqs, mtx, weight)
+    .Call('_alndist_pairwise_score', PACKAGE = 'alndist', seqs, mtx, weight)
 }
 

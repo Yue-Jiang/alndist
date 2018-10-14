@@ -7,7 +7,7 @@ Maintainer: Yue Jiang <yuejiang@alumni.duke.edu>
 Description: Calculate distances between aligned sequences.
     Given a substitution matrix, calculate distance between two sequences,
     pairwise distances for a group of sequences on a single thread or in parallel.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: Rcpp (>= 0.12.16),
@@ -21,5 +21,5 @@ Suggests: knitr,
     seqinr,
     microbenchmark
 VignetteBuilder: knitr
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 SystemRequirements: GNU make
